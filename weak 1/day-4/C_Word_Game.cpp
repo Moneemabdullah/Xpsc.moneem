@@ -1,5 +1,22 @@
+/*
+                    MD Abdullah al moneem
+Bangladesh Army International University of Science and Technology
+*/
+
 #include <bits/stdc++.h>
 using namespace std;
+
+const int MAX_N = 1e5 + 5;
+
+#define ll long long
+#define INF LLONG_MAX
+#define MOD 1000000007
+#define pb push_back
+#define vvi vector<vector<int>>
+#define vpi vector<pair<int, int>>
+
+#define cY cout << "YES" << endl
+#define cN cout << "NO" << endl
 
 void solve()
 {
@@ -13,23 +30,23 @@ void solve()
         {
             string x;
             cin >> x;
-            // cout << x;
+
             ar[i][j] = x;
             mp[x]++;
         }
-        // cout << endl;
     }
     int p[3] = {0};
     for (int i = 0; i < 3; i++)
     {
         for (int j = 0; j < n; j++)
         {
-            // cout << mp.count(ar[i][j]);
-            if (mp.count(ar[i][j]) == 1)
+
+            string x = ar[i][j];
+            if (mp[x] == 1)
             {
                 p[i] += 3;
             }
-            else if (mp.count(ar[i][j]) == 2)
+            else if (mp[x] == 2)
             {
                 p[i] += 1;
             }
@@ -40,10 +57,7 @@ void solve()
     {
         cout << p[i] << " ";
     }
-    // for (auto s : mp)
-    // {
-    //     cout << s.second << " ";
-    // }
+
     cout << endl;
 }
 int main()
