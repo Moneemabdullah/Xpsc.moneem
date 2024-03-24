@@ -52,23 +52,19 @@ void solve()
         {
             for (int j = 1; j < n; j++)
             {
-                if (v[i] != v[j])
+                if (i != j)
                 {
                     int x = sr(v[i], v[j], s);
                     dif = min(dif, x);
                 }
-                else
-                {
-                    dif = 0;
-                    break;
-                }
-            }
-            if (dif == 0)
-            {
-                break;
             }
         }
-        cout << dif << endl;
+        if (dif == MAX_N)
+        {
+            cout << "0" << endl;
+        }
+        else
+            cout << dif << endl;
     }
 }
 
