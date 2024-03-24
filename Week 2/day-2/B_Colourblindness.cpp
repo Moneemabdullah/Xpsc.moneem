@@ -3,7 +3,7 @@
 
     Institute:- BAIUST
     Country:- BANGLADESH
-    date: 2024-03-24 12:23:56
+    date: 2024-03-24 21:40:57
 */
 
 #include <bits/stdc++.h>
@@ -17,33 +17,51 @@ const int MAX_N = 1e5 + 5;
 #define pb push_back
 #define vvi vector<vector<int>>
 #define vpi vector<pair<int, int>>
+bool div(char a, char b)
+{
+    if (a == b)
+    {
+        return true;
+    }
+    else if (a == 'G')
+    {
+        if (b == 'G' || b == 'B')
+            return true;
+        }
+    else if (a == 'B')
+    {
+        if (b == 'G' || b == 'B')
+            return true;
+    }
+
+    return false;
+}
 
 void solve()
 {
     /* Lets GO */
-    ll s;
+    int count;
+    string s;
+    string t;
+    cin >> count;
     cin >> s;
-    map<ll, int> m;
-    while (s--)
+    cin >> t;
+    bool tr = true;
+    for (int i = 0; i < count; i++)
     {
-        int val;
-        cin >> val;
-        m[val]++;
-    }
-    int odd = 0, even = 0;
-    for (auto X : m)
-    {
-        int t = X.second;
-        if (t & 1)
+        if (!div(s[i], t[i]))
         {
-            odd++;
-        }
-        else
-        {
-            even++;
+            tr = false;
         }
     }
-    cout << odd + even - (even % 2) << endl;
+    if (tr)
+    {
+        cout << "YES" << endl;
+    }
+    else
+    {
+        cout << "NO" << endl;
+    }
 }
 
 int main()
