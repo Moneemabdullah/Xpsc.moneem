@@ -30,16 +30,27 @@ void solve()
         cin >> a;
         c.pb(a);
     }
-    int b = 0;
-    for (int i = 0; i < s; i++)
+    int op = 0;
+    int cl = 0;
+    int ans = 0;
+    for (int i = 0; i < c.size(); i++)
     {
-        for (int j = 1; j < s; j++)
+        if (c[i] == ')' && cl == 0)
         {
-            if (c[i] == ')')
-            {
-            }
+            ans++;
+            op++;
+        }
+        else if (c[i] == '(')
+        {
+            cl++;
+            op--;
+        }
+        else if (c[i] == ')' && cl != 0)
+        {
+            cl--;
         }
     }
+    cout << ans << endl;
 }
 
 int main()
