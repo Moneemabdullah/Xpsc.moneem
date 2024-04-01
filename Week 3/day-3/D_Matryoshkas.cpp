@@ -46,7 +46,8 @@ void solve()
         {
             i++;
         }
-        vp.push_back({ar[i], i - j});
+        vp.push_back({ar[j], i - j});
+        // cout << "Doll size: " << ar[j] << ", Frequency: " << i - j + 1 << endl;
     }
     div = vp[0].second;
     for (int i = 1; i < vp.size(); i++)
