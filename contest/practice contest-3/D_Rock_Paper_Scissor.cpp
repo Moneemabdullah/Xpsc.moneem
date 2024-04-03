@@ -29,10 +29,14 @@ void solve()
     string ch;
     string gf;
     cin >> ch >> gf;
-    int c = 0, g = 0;
+    int c = 0, g = 0, d = 0;
     for (int i = 0; i < s; i++)
     {
-        if (ch[i] == 'R')
+        if (ch[i] == gf[i])
+        {
+            d++;
+        }
+        else if (ch[i] == 'R')
         {
             if (gf[i] == 'S')
             {
@@ -56,7 +60,7 @@ void solve()
         }
         else if (ch[i] == 'S')
         {
-            if (gf[i] == 'p')
+            if (gf[i] == 'P')
             {
                 c++;
             }
@@ -67,15 +71,22 @@ void solve()
         }
     }
 
-    if (c > g)
+    ll ans = 0;
+    while (c <= g)
     {
-        cout << 0 << endl;
+        ans++;
+        if (g > 0)
+        {
+            g--;
+            c++;
+        }
+        else
+        {
+            d--;
+            c++;
+        }
     }
-    else
-    {
-        int ans = g - c;
-        cout << ans << endl;
-    }
+    cout << ans << endl;
 }
 
 /*  --------------------MAIN PROGRAM----------------------------*/

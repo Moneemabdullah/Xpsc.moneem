@@ -3,7 +3,7 @@
 
     Institute:- BAIUST
     Country:- BANGLADESH
-    date: 2024-04-02 11:23:08
+    date: 2024-04-03 11:27:49
 */
 
 #include <bits/stdc++.h>
@@ -20,46 +20,36 @@ const int MAX_N = 1e5 + 5;
 #define no cout << "NO" << endl;
 #define yes cout << "YES" << endl;
 
-/*----------------------SOLUTION PROGRAM-------------------------*/
+/*  --------------------SOLUTION PROGRAM-------------------------*/
 void solve()
 {
     /* Lets GO */
-    ll n, k, q;
-    cin >> n >> k >> q;
-    // cout << n << k << q;
-    vector<ll> v;
-    for (ll i = 0; i < n; i++)
+    int s;
+    vector<int> a(s), b(s), c(s);
+    for (int i = 0; i < s; i++)
     {
-        ll val;
-        cin >> val;
-        v.pb(val);
-    }
-    ll ans = 0;
-    ll i = 0;
-
-    while (i < n)
-    {
-        ll s = 0;
-        while (v[i] <= q && i < n)
-        {
-            s++;
-            i++;
-        }
-        while (v[i] > q && i < n)
-        {
-            i++;
-        }
-        if (s >= k)
-        {
-            ll r = s - k + 1;
-            ans += (r * (r + 1)) / 2;
-        }
+        cin >> a[i];
     }
 
-    cout << ans << endl;
+    for (int i = 0; i < s; i++)
+    {
+        cin >> b[i];
+    }
+
+    for (int i = 0; i < s; i++)
+    {
+        cin >> c[i];
+    }
+
+    int al = 0, bl = 0, cl = 0;
+    int x = 0, y = 0, z = 0;
+    for (int i = 0; i < s; i++)
+    {
+        x =
+    }
 }
 
-/*----------------------MAIN PROGRAM----------------------------*/
+/*  --------------------MAIN PROGRAM----------------------------*/
 
 int main()
 {
