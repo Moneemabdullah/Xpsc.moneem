@@ -3,7 +3,7 @@
 
     Institute:- BAIUST
     Country:- BANGLADESH
-    date: 2024-04-03 11:27:49
+    date: 2024-04-04 00:06:31
 */
 
 #include <bits/stdc++.h>
@@ -17,6 +17,7 @@ const int MAX_N = 1e5 + 5;
 #define pb push_back
 #define vvi vector<vector<int>>
 #define vpi vector<pair<int, int>>
+#define mp make_pair
 #define no cout << "NO" << endl;
 #define yes cout << "YES" << endl;
 
@@ -25,28 +26,46 @@ void solve()
 {
     /* Lets GO */
     int s;
-    vector<int> a(s), b(s), c(s);
+    cin >> s;
+    vector<ll> a(s), b(s), c(s);
+    vector<pair<ll, ll>> pa, pb, pc;
     for (int i = 0; i < s; i++)
     {
         cin >> a[i];
+        pa.push_back(mp(a[i], i));
     }
 
     for (int i = 0; i < s; i++)
     {
         cin >> b[i];
+        pb.push_back(mp(b[i], i));
     }
 
     for (int i = 0; i < s; i++)
     {
         cin >> c[i];
+        pc.push_back(mp(c[i], i));
     }
 
-    int al = 0, bl = 0, cl = 0;
-    int x = 0, y = 0, z = 0;
-    for (int i = 0; i < s; i++)
+    sort(pa.begin(), pa.end(), greater<>());
+    sort(pb.begin(), pb.end(), greater<>());
+    sort(pc.begin(), pc.end(), greater<>());
+
+    ll ans = 0;
+    for (int i = 0; i < 3; i++)
     {
-        x =
+        for (int j = 0; j < 3; j++)
+        {
+            for (int k = 0; k < 3; k++)
+            {
+                if (pa[i].second != pb[j].second and pa[i].second != pc[k].second and pb[j].second != pc[k].second)
+                {
+                    ans = max((pa[i].first + pb[j].first + pc[k].first), ans);
+                }
+            }
+        }
     }
+    cout << ans << endl;
 }
 
 /*  --------------------MAIN PROGRAM----------------------------*/
@@ -59,12 +78,9 @@ int main()
 
     int tc;
     cin >> tc;
-    // int t = 1;
     while (tc--)
     {
-        // cout << "Case #" << t++ << ": ";
         solve();
     }
     return 0;
 }
-/* -----------------END OF PROGRAM --------------------*/
