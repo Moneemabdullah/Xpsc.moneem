@@ -25,19 +25,13 @@ void ssolve()
 {
     ll s, q;
     cin >> s >> q;
-    map<int, pair<int, int>> mp; // Map to store min and max indices
+    map<int, vector<int>> mp;
 
-    for (i = 0; i < s; i++)
+    for (int i = 0; i < s; i++)
     {
         ll val;
         cin >> val;
-        if (mp.find(val) == mp.end()) // If value not found in map
-            mp[val] = {i, i};         // Initialize min and max indices
-        else
-        {
-            mp[val].first = min(mp[val], i);  // Update min index using std::min
-            mp[val].second = max(mp[val], i); // Update max index using std::max
-        }
+        mp[val].push_back(i);
     }
 
     while (q--)
@@ -45,14 +39,20 @@ void ssolve()
         ll x, y;
         cin >> x >> y;
 
-        if (mp.find(x) != mp.end() && mp.find(y) != mp.end()) // Both values are found
+        if (mp[x].empty() or mp[y].empty())
         {
-            if ((mp[x].first < mp[y].first && mp[x].second < mp[y].first) || // x appears before y
-                (mp[y].first < mp[x].first && mp[y].second < mp[x].first))   // y appears before x
-                yes else no
+            no
+        }
+        else if (mp[x] == mp[y])
+        {
+            yes
+        }
+        else if (mp[x].front() < mp[y].back())
+        {
+            yes
         }
         else
-            no // One or both values not found
+            no
     }
 }
 
