@@ -23,15 +23,15 @@ const int MAX_N = 1e5 + 5;
 /*  --------------------SOLUTION PROGRAM-------------------------*/
 void solve()
 {
-    int n;
+    ll n;
     cin >> n;
-    vector<int> arr(n);
+    vector<ll> arr(n);
     for (int i = 0; i < n; i++)
     {
         cin >> arr[i];
     }
 
-    int ct = 0, t = 0, o = 0;
+    ll ct = 0, t = 0, o = 0;
     bool flg = 0;
     for (int i = 0; i < n; i++)
     {
