@@ -23,36 +23,32 @@ const int MAX_N = 1e5 + 5;
 /*  --------------------SOLUTION PROGRAM-------------------------*/
 void solve()
 {
-    /* Lets GO */
-    ll s, k;
-    cin >> s >> k;
-    vector<ll> v(s);
-    for (int i = 0; i < s; i++)
+    int n, k;
+    cin >> n >> k;
+    int a[n];
+    for (int i = 0; i < n; i++)
+        cin >> a[i];
+
+    int ans = 0, odd = 0;
+    for (int i = 0; i < k; i++)
     {
-        cin >> v[i];
+        if (a[i] % 2 != 0)
+            odd++;
+    }
+    if (odd > 0)
+        ans++;
+
+    for (int i = k; i < n; i++)
+    {
+        if (a[i - k] % 2 != 0)
+            odd--;
+        if (a[i] % 2 != 0)
+            odd++;
+        if (odd > 0)
+            ans++;
     }
 
-    ll f = 0;
-    ll r = k;
-    ll co = 0;
-    ll sum = 0;
-    for (int i = f; i < r; i++)
-    {
-        sum |= v[i];
-    }
-    while (r <= s)
-    {
-        if (sum & 1)
-        {
-            co++;
-        }
-        sum ^= v[f];
-        sum |= v[r];
-        f++;
-        r++;
-    }
-
-    cout << co;
+    cout << ans;
 }
 
 /*  --------------------MAIN PROGRAM----------------------------*/
