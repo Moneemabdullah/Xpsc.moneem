@@ -3,7 +3,7 @@
 
     Institute:- BAIUST
     Country:- BANGLADESH
-    date: 2024-03-24 21:40:57
+    date: 2024-04-09 23:24:11
 */
 
 #include <bits/stdc++.h>
@@ -17,52 +17,30 @@ const int MAX_N = 1e5 + 5;
 #define pb push_back
 #define vvi vector<vector<int>>
 #define vpi vector<pair<int, int>>
-bool div(char a, char b)
-{
-    if (a == b)
-    {
-        return true;
-    }
-    else if (a == 'G')
-    {
-        if (b == 'G' || b == 'B')
-            return true;
-        }
-    else if (a == 'B')
-    {
-        if (b == 'G' || b == 'B')
-            return true;
-    }
+#define no cout << "NO" << endl;
+#define yes cout << "YES" << endl;
 
-    return false;
-}
-
+/*  --------------------SOLUTION PROGRAM-------------------------*/
 void solve()
 {
     /* Lets GO */
-    int count;
-    string s;
-    string t;
-    cin >> count;
+    int s, Xor = 0;
     cin >> s;
-    cin >> t;
-    bool tr = true;
-    for (int i = 0; i < count; i++)
+    vector<int> a(s);
+    for (int i = 0; i < s; i++)
     {
-        if (!div(s[i], t[i]))
-        {
-            tr = false;
-        }
+        cin >> a[i];
+        Xor ^= a[i];
     }
-    if (tr)
+    int ans = Xor;
+    for (int i = 0; i < s; i++)
     {
-        cout << "YES" << endl;
+        ans = min(ans, (Xor ^ a[i]));
     }
-    else
-    {
-        cout << "NO" << endl;
-    }
+    cout << ans;
 }
+
+/*  --------------------MAIN PROGRAM----------------------------*/
 
 int main()
 {
@@ -77,6 +55,8 @@ int main()
     {
         // cout << "Case #" << t++ << ": ";
         solve();
+        cout << endl;
     }
     return 0;
 }
+/* -----------------END OF PROGRAM --------------------*/
