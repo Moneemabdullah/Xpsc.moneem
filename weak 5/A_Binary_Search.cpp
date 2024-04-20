@@ -18,13 +18,18 @@ int main()
     int s, k;
     cin >> s >> k;
     vector<int> v(s);
+    for (int i = 0; i < s; i++)
+    {
+        cin >> v[i];
+    }
+
     sort(v.begin(), v.end());
     while (k--)
     {
         int val;
 
         cin >> val;
-        int l = 0, r = s - 2, mid;
+        int l = 0, r = s - 1, mid;
         bool found = false;
         while (l <= r)
         {
@@ -36,7 +41,7 @@ int main()
                 found = true;
                 break;
             }
-            else if (val > mid)
+            else if (val > v[mid])
             {
                 l = mid + 1;
             }
