@@ -9,40 +9,26 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-//'return type  ace perameter ace
-int as(int x, int y)
+class Name
 {
-    return x + y;
-}
+private:
+public:
+    float pi = 3.1416;
 
-void sub(int x, int y) //'return type nai perameter ace
-{
-    cout << x - y;
-}
+    friend void area(Name);
+};
 
-int m() //'return type ace perameter nai
+void area(Name obj)
 {
-    int a, b;
-    cin >> a >> b;
-    return a * b;
-}
-
-void e() //'return type nai perameter nai
-{
-    int a, b;
-    cin >> a >> b;
-    cout << a + b;
+    int r;
+    obj.pi;
+    cout << obj.pi;
 }
 
 int main()
 {
-    int a, b;
-    cin >> a >> b;
-    cout << as(a, b);
+    Name obj;
+    area(obj);
 
-    swap(a, b);
-
-    sub(a, b);
-    e();
     return 0;
 }
